@@ -1,0 +1,10 @@
+{
+    "require": {
+        "dzafel/pinterest-pinner": "dev-master"
+    },
+    "autoload": {
+    	"files": ["classes/PinterestPinnerData.php"]
+    }
+}
+
+
