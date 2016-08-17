@@ -14,13 +14,21 @@ remoteUserSSH="admin"
 remoteHostSSH="192.168.1.101"
 
 
-# --- Copy commands below ----
+# --- Installation commands below ----
 
 echo "Remove destination folder"
 #ssh "$remoteUserSSH"@"$remoteHostSSH" "rm -rf $destinationPath"
 
 echo "Create destination folder"
 #ssh "$remoteUserSSH"@"$remoteHostSSH" "mkdir $destinationPath"
+
+echo "Copy log file and update permissions"
+#scp -r $sourcePath/log/ "$remoteUserSSH"@"$remoteHostSSH:$destinationPath"
+#ssh "$remoteUserSSH"@"$remoteHostSSH" "chmod 660 $destinationPath/log/*"
+#ssh "$remoteUserSSH"@"$remoteHostSSH" "chown http $destinationPath/log"
+#ssh "$remoteUserSSH"@"$remoteHostSSH" "chown http $destinationPath/log/status.log"
+
+# --- Copy commands below ----
 
 echo "Copy public files"
 scp -r $sourcePath/public/. "$remoteUserSSH"@"$remoteHostSSH:$destinationPath/public"
